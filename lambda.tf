@@ -11,6 +11,7 @@ resource "aws_lambda_function" "terraform_lambda_function" {
     role                           = data.aws_iam_role.lambda.arn
     handler                        = "candidateEmail.lambda_handler"
     runtime                        = "python3.8"
+    timeouts                       = 30
 
     # Used to trigger updates
     source_code_hash = data.archive_file.lambda_devops_exam.output_base64sha256
